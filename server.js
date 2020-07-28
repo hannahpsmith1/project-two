@@ -20,14 +20,14 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // import routes
-const trailsApiRoutes = require("./controllers/trails-api-routes.js");
+const usersApiRoutes = require("./controllers/users-api-routes.js");
 const favoritesApiRoutes = require("./controllers/favorites-api-routes.js");
 const entriesApiRoutes = require("./controllers/entries-api-routes.js");
 const htmlRoutes = require("./controllers/html-routes.js");
 
 // add routes
 app.use(htmlRoutes);
-app.use(trailsApiRoutes);
+app.use(usersApiRoutes);
 app.use(favoritesApiRoutes);
 app.use(entriesApiRoutes);
 

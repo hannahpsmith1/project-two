@@ -20,10 +20,10 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // import routes
-const htmlRoutes = require("./controllers/html-routes.js");
 const trailsApiRoutes = require("./controllers/trails-api-routes.js");
 const favoritesApiRoutes = require("./controllers/favorites-api-routes.js");
 const entriesApiRoutes = require("./controllers/entries-api-routes.js");
+const htmlRoutes = require("./controllers/html-routes.js");
 
 // add routes
 app.use(htmlRoutes);
@@ -33,5 +33,5 @@ app.use(entriesApiRoutes);
 
 // listen
 app.listen(PORT, () => {
-  console.log("App now listening at localhost:" + PORT);
+  console.log("App now listening at http://localhost:" + PORT);
 });

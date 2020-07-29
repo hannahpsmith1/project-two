@@ -32,28 +32,28 @@ router.get("/trails/:trail_id", (req, res) => {
 });
 
 // view a user's favorite trails
-router.get("/users/:user_id/favorites", (req, res) => {
-  res.send("Favorited trails for user id " + req.params.user_id);
+router.get("/favorites", (req, res) => {
+  res.send("Favorited trails current user");
 });
 
 // view a user's entries
-router.get("/users/:user_id/entries", (req, res) => {
-  res.send("All entries for user id " + req.params.user_id);
+router.get("/entries", (req, res) => {
+  res.send("All entries for current user");
 });
 
 // view page for adding an entry
-router.get("/users/:user_id/entries/new", (req, res) => {
-  res.send("Page for adding a new entry belonging to user id " + req.params.user_id);
+router.get("/entries/new", (req, res) => {
+  res.send("Page for adding a new entry");
 });
 
 // view a specific entry
-router.get("/users/:user_id/entries/:entry_id", (req, res) => {
-  res.send("Details for entry id " + req.params.entry_id + " belonging to user id " + req.params.user_id);
+router.get("/entries/:entry_id", (req, res) => {
+  res.send("Details for entry id " + req.params.entry_id);
 });
 
 // view page for editing an entry
-router.get("/users/:user_id/entries/:entry_id/edit", (req, res) => {
-  res.send("Page for editing entry id " + req.params.entry_id + " belonging to user id " + req.params.user_id);
+router.get("/entries/:entry_id/edit", (req, res) => {
+  res.send("Page for editing entry id " + req.params.entry_id);
 });
 
 // redirect to home page if not found

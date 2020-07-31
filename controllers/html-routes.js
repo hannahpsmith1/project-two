@@ -45,7 +45,7 @@ router.get("/trails", (req, res) => {
   .then(response => {
     console.log(`${response.data.trails.length} trails found!`);
     // this will be changed to res.render()
-    res.json({placeName: placeName, trails: response.data.trails});
+    res.render("search", {placeName: placeName, trails: response.data.trails});
   })
   .catch(err => {
     console.log(err);

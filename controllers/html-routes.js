@@ -29,6 +29,10 @@ router.get("/users/new", (req, res) => {
   res.send("Page for adding a new user");
 });
 
+router.get("/signIn", (req,res) => {
+  res.render("signIn", {});
+});
+
 // view trails search results
 router.get("/trails", (req, res) => {
   // route: "/trails?q=LOCATION_SEARCH_TERM"

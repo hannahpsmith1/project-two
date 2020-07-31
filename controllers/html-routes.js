@@ -8,6 +8,9 @@ const TRAILS_API_KEY = "200852069-3d419e2b51f92a7bd4335a8172e48379";
 const express = require("express");
 const axios = require("axios");
 
+// import sequelize models
+const db = require("../models");
+
 // create router
 const router = express.Router();
 
@@ -65,7 +68,10 @@ router.get("/favorites", (req, res) => {
 
 // view a user's entries
 router.get("/entries", (req, res) => {
-  res.send("All entries for current user");
+  db.entry.findAll({}).then(data => {
+    console.log(data);
+    res.render("entries", {entries: data});
+  });
 });
 
 // view page for adding an entry

@@ -1,0 +1,11 @@
+<h3>Hiking Log</h3>
+
+<ul class="collection">
+    {{#each entries}}
+    <li class="collection-item">
+        <h4>{{dataValues.title}}</h4>
+        <h5>{{dataValues.dateHiked}}</h5>
+        <p>{{dataValues.description}}</p>
+    </li>
+    {{/each}}
+</ul>

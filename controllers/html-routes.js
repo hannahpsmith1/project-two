@@ -1,7 +1,11 @@
 // this file creates a router than handles the html routes
 
+// third party api keys (not connected to any paid accounts)
+const MAPBOX_API_KEY = "pk.eyJ1IjoiaGFubmFocHNtaXRoMSIsImEiOiJja2Q5YWV2Z2cycnRkMzBxOXRvaTY5d3ZyIn0.AsJlZWY4QSF_sDuluyby_w";
+
 // import dependencies
 const express = require("express");
+const axios = require("axios");
 
 // create router
 const router = express.Router();
@@ -23,7 +27,19 @@ router.get("/users/new", (req, res) => {
 
 // view trails search results
 router.get("/trails", (req, res) => {
-  res.send("Trails search results");
+  // route: "/trails?q=LOCATION_SEARCH_TERM"
+
+  // make API call to MapBox to get coordinates
+  axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${req.query.q}.json?access_token=${MAPBOX_API_KEY}`)
+  .then(response => {
+    const coords = response.data.features[0].center;
+    console.log(coords);
+    res.json(response.data);
+  })
+  .catch(err => {
+    console.log(err);
+    res.send("An error occurred...")
+  });
 });
 
 // view details about a specific trail

@@ -1,13 +1,13 @@
 
 module.exports = function(sequelize, DataTypes) {
     var User = sequelize.define("user", {
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-              len: [1]
-            }
-          },
+        // id: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false,
+        //     validate: {
+        //       len: [1]
+        //     }
+        //   },
         email: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -23,21 +23,21 @@ module.exports = function(sequelize, DataTypes) {
         //   len: [1]
         // }
       },
-      zipCode: {
-        type: DataTypes.INTEGER,
-        defaultValue: "55555"
-      },
-      dateHiked: {
-        type: DataTypes.DATEONLY,
-        defaultValue: "MM/DD/YYYY"
-      },
-      titleHike: {
-        type: DataTypes.STRING,
-        defaultValue: "Pacific Crest Trail"
-      },
-      individualRating: {
-        type: DataTypes.INTEGER
-      }
+      // zipCode: {
+      //   type: DataTypes.INTEGER,
+      //   defaultValue: "55555"
+      // },
+      // dateHiked: {
+      //   type: DataTypes.DATEONLY,
+      //   defaultValue: "MM/DD/YYYY"
+      // },
+      // titleHike: {
+      //   type: DataTypes.STRING,
+      //   defaultValue: "Pacific Crest Trail"
+      // },
+      // individualRating: {
+      //   type: DataTypes.INTEGER
+      // }
     });
     return User;
 

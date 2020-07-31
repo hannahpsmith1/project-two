@@ -1,0 +1,15 @@
+<h3>Trails near {{ placeName }}</h3>
+
+<ul class="collection">
+    {{#each trails}}
+    <li class="collection-item">
+        <img src="{{imgSqSmall}}" alt="trail image for {{name}}">
+        <h4>{{name}}</h4>
+        <h5>{{location}}</h5>
+        <p>Length: {{length}} miles</p>
+        <p>Rating: {{stars}}/5</p>
+        <p>{{summary}}</p>
+        <button data-trailid="{{id}}">Add journal</button>
+    </li>
+    {{/each}}
+</ul>

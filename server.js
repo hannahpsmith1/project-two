@@ -8,6 +8,9 @@ const exphbs = require("express-handlebars");
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+// import models
+const db = require("./models");
+
 // parse data sent in requests
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
@@ -31,7 +34,11 @@ app.use(usersApiRoutes);
 app.use(favoritesApiRoutes);
 app.use(entriesApiRoutes);
 
-// listen
-app.listen(PORT, () => {
-  console.log("App now listening at http://localhost:" + PORT);
+// sync the database to the models
+db.sequelize.sync().then(function() {
+  console.log("The database is synced!!!");
+  // listen
+  app.listen(PORT, () => {
+    console.log("App now listening at http://localhost:" + PORT);
+  });
 });

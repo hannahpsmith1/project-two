@@ -2,6 +2,7 @@
 
 // third party api keys (not connected to any paid accounts)
 const MAPBOX_API_KEY = "pk.eyJ1IjoiaGFubmFocHNtaXRoMSIsImEiOiJja2Q5YWV2Z2cycnRkMzBxOXRvaTY5d3ZyIn0.AsJlZWY4QSF_sDuluyby_w";
+const TRAILS_API_KEY = "200852069-3d419e2b51f92a7bd4335a8172e48379";
 
 // import dependencies
 const express = require("express");
@@ -34,6 +35,11 @@ router.get("/trails", (req, res) => {
   .then(response => {
     const coords = response.data.features[0].center;
     console.log(coords);
+    // make API call to The Hiking Project to get trails near coordinates
+    return axios.get(`https://www.hikingproject.com/data/get-trails?lon=${coords[0]}&lat=${coords[1]}&key=${TRAILS_API_KEY}`);
+  })
+  .then(response => {
+    console.log(response.data);
     res.json(response.data);
   })
   .catch(err => {

@@ -36,6 +36,7 @@ app.use(entriesApiRoutes);
 
 // sync the database to the models
 db.sequelize.sync().then(function() {
+  console.log("The database is synced!!!");
   // listen
   app.listen(PORT, () => {
     console.log("App now listening at http://localhost:" + PORT);

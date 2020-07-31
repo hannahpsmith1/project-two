@@ -30,17 +30,22 @@ router.get("/users/new", (req, res) => {
 router.get("/trails", (req, res) => {
   // route: "/trails?q=LOCATION_SEARCH_TERM"
 
+  // keep track of place name so we can verify that the correct location was found
+  let placeName;
+
   // make API call to MapBox to get coordinates
   axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${req.query.q}.json?access_token=${MAPBOX_API_KEY}`)
   .then(response => {
     const coords = response.data.features[0].center;
-    console.log(coords);
+    placeName = response.data.features[0].place_name;
+    console.log(`${placeName}: ${coords}`);
     // make API call to The Hiking Project to get trails near coordinates
     return axios.get(`https://www.hikingproject.com/data/get-trails?lon=${coords[0]}&lat=${coords[1]}&key=${TRAILS_API_KEY}`);
   })
   .then(response => {
-    console.log(response.data);
-    res.json(response.data);
+    console.log(`${response.data.trails.length} trails found!`);
+    // this will be changed to res.render()
+    res.json({placeName: placeName, trails: response.data.trails});
   })
   .catch(err => {
     console.log(err);

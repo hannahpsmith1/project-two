@@ -1,12 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
     var Entry = sequelize.define("entry", {
-        // id: {
-            // type: DataTypes.INTEGER,
-            // allowNull: false,
-            // validate: {
-            //   len: [1]
-            // }
-        // },
         title: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -14,30 +7,29 @@ module.exports = function(sequelize, DataTypes) {
           len: [1]
         }
       },
-      type: {
-        type: DataTypes.STRING,
+      hikeID: {
+        type: DataTypes.INTEGER,
         // do we want to allow them not to have a name? if not I have the validation there
-        allowNull: true,
+        allowNull: falsetrue,
         // validate: {
         //   len: [1]
         // }
+      },
+      dateHiked: {
+        type: DataTypes.STRING,
+        defaultValue: "MM/DD/YYYY"
       },
       description: {
         type: DataTypes.TEXT,
         defaultValue: "Pacific Crest Trail"
       },
-      zipCode: {
+      individualRating: {
         type: DataTypes.INTEGER,
-        defaultValue: "55555"
+        defaultValue: ""
       },
-      dateHiked: {
-        type: DataTypes.STRING,
-        defaultValue: "MM/DD/YYYY"
-      }
-    //   individualRating: {
-    //     type: DataTypes.INTEGER
-    //   }
-    // Maybe we should put the rating here? 
+      // public: {
+      //   type: DataTypes. Boolean, 
+      // }
     });
     return Entry;
 

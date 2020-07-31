@@ -1,7 +1,8 @@
 
 module.exports = function(sequelize, DataTypes) {
     var User = sequelize.define("user", {
-        // id: {
+        //We don't need an id route, it is automatic for us 
+      // id: {
         //     type: DataTypes.INTEGER,
         //     allowNull: false,
         //     validate: {
@@ -23,6 +24,22 @@ module.exports = function(sequelize, DataTypes) {
         //   len: [1]
         // }
       },
+      password: {
+        type: DataTypes.STRING,
+        // do we want to allow them not to have a name? if not I have the validation there
+        allowNull: false,
+        validate: {
+          len: [6]
+        }
+      },
+      entry: {
+        type: DataTypes.STRING,
+        // do we want to allow them not to have a name? if not I have the validation there
+        allowNull: false,
+        validate: {
+          len: [6]
+        }
+      }
       // zipCode: {
       //   type: DataTypes.INTEGER,
       //   defaultValue: "55555"

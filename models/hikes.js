@@ -1,12 +1,12 @@
 module.exports = function(sequelize, DataTypes) {
     var Hikes = sequelize.define("hikes", {
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-              len: [1]
-            }
-          },
+        // id: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false,
+        //     validate: {
+        //       len: [1]
+        //     }
+        //   },
         title: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -23,7 +23,7 @@ module.exports = function(sequelize, DataTypes) {
         // }
       },
       description: {
-        type: DataTypes.STRING(30000),
+        type: DataTypes.TEXT,
         defaultValue: "Pacific Crest Trail"
       },
       zipCode: {

@@ -75,8 +75,8 @@ router.get("/entries", (req, res) => {
 });
 
 // view page for adding an entry
-router.get("/entries/new", (req, res) => {
-  res.render("addEntry", {});
+router.get("trails/:trailId/entries/new", (req, res) => {
+  res.render("addEntry", {trailId: trailId});
 });
 
 // // view a specific entry

@@ -11,6 +11,9 @@ const router = express.Router();
 
 // add an entry
 router.post("/api/entries", (req, res) => {
+  // API call to get trail data for the specific trail
+  // Save that trail data to hikes table
+  // Save the entry to the entry table
   db.entry.create({
     title: req.body.title,
     description: req.body.description,

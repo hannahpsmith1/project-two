@@ -3,12 +3,25 @@
 // import dependencies
 const express = require("express");
 
+// import sequelize models
+const db = require("../models");
+
 // create router
 const router = express.Router();
 
 // add an entry
 router.post("/api/entries", (req, res) => {
-  res.send("API route for adding an entry");
+  db.entry.create({
+    title: req.body.title,
+    description: req.body.description,
+    dateHiked: req.body.dateHiked
+  })
+  .then(() => {
+    res.status(200).end();
+  })
+  .catch(err => {
+    res.status(500).end();
+  });
 });
 
 // update an entry

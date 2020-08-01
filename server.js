@@ -3,6 +3,7 @@
 // import dependencies
 const express = require("express");
 const exphbs = require("express-handlebars");
+const session = require("express-session");
 
 // create the app
 const app = express();
@@ -11,12 +12,20 @@ const PORT = process.env.PORT || 8080;
 // import models
 const db = require("./models");
 
+// import passport configuration
+const passport = require("./config/passport.js");
+
 // parse data sent in requests
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 
 // send public file
 app.use(express.static("./public"));
+
+// use passport with persistent login sessions
+app.use(session({ secret: "keyboard cat", resave: false, saveUninitialized: false }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // use handlebars templates
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));

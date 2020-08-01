@@ -1,19 +1,51 @@
 // this file configures passport
 
+// require dependencies
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+const db = require("../models");
+
 // use local strategy for logging in directly through our app
-
-// log in with email
-
-// define what happens when a user attempts to sign in
-
-  // search database for email
-
-  // if not found, return no user data
-
-  // if found, check password
-
-  // if incorrect, return no user data
-
-  // if correct, return data for the user
+passport.use(new LocalStrategy(
+  // log in with email
+  {
+    usernameField: "email"
+  },
+  // define what happens when a user attempts to sign in
+  (email, password, done) => {
+    // search database for email
+    db.user.findOne({
+      where: { email: email }
+    }).then(userMatch => {
+      // if not found, return no user data
+      if (!userMatch) { 
+        return done(null, false, { message: 'Incorrect email.' }); 
+      }
+      // if found, check password -- currently, password is not encrypted
+      // CHANGE LATER TO USER MODEL ENCRYPT PASSWORD
+      if (userMatch.password !== password) { 
+        // if incorrect, return no user data
+        return done(null, false, { message: 'Incorrect password.' }); 
+      }
+      // if correct, return data for the user
+      return done (null, userMatch);
+    }).catch(err => {
+      return done(err);
+    });
+  }
+));
 
 // serialize and deserialize the user (i.e. store their data in a cookie when they're logged in)
+passport.serializeUser(function(user, done) {
+  done(null, user.id); 
+  // Currently just storing id's in the cookie. Is it bad because our id's are predictable?
+});
+
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function(err, user) {
+    done(err, user);
+  });
+});
+
+// export the configuration
+module.exports = passport;

@@ -1,21 +1,33 @@
-<div class="container" >
+<div class="container ">
 <h3 class="white-text" style="font-weight: 900;">Trails near {{ placeName }}</h3>
 
 <ul class="">
     {{#each trails}}
-    <li class="collection-item white-text">
-       
-        <img class="circle" src="{{imgSqSmall}}" alt="trail image for {{name}}">
+    <li class="collection-item white-text" style="margin-bottom: 10%;">
+    
+        <img class="" style="width:30%;" src="{{imgMedium}}" alt="trail image for {{name}}">
         <h4 style="font-weight: 800;">{{name}}</h4>
         <h5 style="font-weight: 800;">{{location}}</h5>
+       
+        <p style="font-weight: 800;" >{{summary}}</p>
+        
         <p style="font-weight: 800;">Distance: {{length}} miles</p>
         <p style="font-weight: 800;">Rating: {{stars}}/5</p>
-        <p style="font-weight: 800;">{{summary}}</p>
+        
 
-        <button data-trailid="{{id}}">Add journal</button>
+        
+        <button class="btn waves-effect waves-light #00bfa5 teal accent-4" id="submit" style="margin-bottom: 10%;"type="submit" name="action"  data-trailid="{{id}}">Add Journal
+              <i class="material-icons right">book</i>
+            </button>
     </li>
     {{/each}}
 </ul>
+
+
+
+
+
+
 </div>
 
 

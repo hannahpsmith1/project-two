@@ -21,7 +21,7 @@ router.get("/", (req, res) => {
 
 // view page for adding a user
 router.get("/signUp", (req, res) => {
-  res.send("signUp", {});
+  res.render("signUp", {});
 });
 
 // view page for logging in

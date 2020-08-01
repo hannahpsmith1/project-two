@@ -1,9 +1,10 @@
-<div class="container center" >
+<div class="container" >
 <h3 class="white-text" style="font-weight: 900;">Trails near {{ placeName }}</h3>
 
 <ul class="">
     {{#each trails}}
     <li class="collection-item white-text">
+       
         <img class="circle" src="{{imgSqSmall}}" alt="trail image for {{name}}">
         <h4 style="font-weight: 800;">{{name}}</h4>
         <h5 style="font-weight: 800;">{{location}}</h5>
@@ -16,3 +17,6 @@
     {{/each}}
 </ul>
 </div>
+
+
+

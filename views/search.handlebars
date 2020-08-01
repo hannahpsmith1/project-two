@@ -1,11 +1,12 @@
-<div class="container" >
-<h3 class="white-text" style="font-weight: 900;">Trails near {{ placeName }}</h3>
+<div class="container">
+{{!-- <h3 class="white-text" style="font-weight: 900;">Trails near {{ placeName }}</h3>
 
 <ul class="">
     {{#each trails}}
     <li class="collection-item white-text">
-       
-        <img class="circle" src="{{imgSqSmall}}" alt="trail image for {{name}}">
+       <div class="right">
+        <img class="circle" style="width: 100%;" src="{{imgSqSmall}}" alt="trail image for {{name}}">
+       </div>
         <h4 style="font-weight: 800;">{{name}}</h4>
         <h5 style="font-weight: 800;">{{location}}</h5>
         <p style="font-weight: 800;">Distance: {{length}} miles</p>
@@ -15,7 +16,24 @@
         <button data-trailid="{{id}}">Add journal</button>
     </li>
     {{/each}}
-</ul>
+</ul> --}}
+{{#each trails}}
+  <div class="col s12 m7">
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="https://lorempixel.com/100/190/nature/6">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p>I am a very simple card. I am good at containing small bits of information.</p>
+        </div>
+        <div class="card-action">
+          <a href="#">This is a link</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/each}}
 </div>
 
 

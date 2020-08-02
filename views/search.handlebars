@@ -1,32 +1,53 @@
-<div class="container ">
-<h3 class="white-text" style="font-weight: 900;">Trails near {{ placeName }}</h3>
+ <div class="navbar">
+      <nav>
+          <div class="nav-wrapper #43a047 green darken-1">
+             <a href="#!" class="brand-logo "style="font-weight:900; padding-left: 10px;" >HIKR</a>
+             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+             <ul class="right hide-on-med-and-down">
+                <li><a href="/entries">Hiking Log</a></li>
+                <li><a href="/team">The Team</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+         </div>
+      </nav>
+   </div>
+   <ul class="side-nav" id="mobile-demo">
+       <li><a href="/entries">Hiking Log</a></li>
+        <li><a href="/team">The Team</a></li>
+        <li><a href="/about">About</a></li>
+  </ul>
+
+<div class="container center">
+<h3 class="white-text" style="font-weight: 900; margin-bottom: 19%;">Trails near {{ placeName }}</h3>
 
 <ul class="">
     {{#each trails}}
-    <li class="collection-item white-text" style="margin-bottom: 10%;">
-    
-        <img class="" style="width:30%;" src="{{imgMedium}}" alt="trail image for {{name}}">
-        <h4 style="font-weight: 800;">{{name}}</h4>
-        <h5 style="font-weight: 800;">{{location}}</h5>
-       
-        <p style="font-weight: 800;" >{{summary}}</p>
-        
-        <p style="font-weight: 800;">Distance: {{length}} miles</p>
-        <p style="font-weight: 800;">Rating: {{stars}}/5</p>
-        
+    <li class="collection-item white-text  #00897b teal darken-1 z-depth-5" style=" border-radius: 60px; margin-bottom: 90px;">
+        <div class="row">
+            <div class="col l4">
+            <img style=" display: inline-block; position: relative; width: 200px; height: 200px; overflow: hidden; border-radius: 50%; margin-top: 3%;" class="responsive-img" src="{{imgMedium}}" alt="trail image for {{name}}">
+            
+            </div>
 
-        
-        <button class="btn waves-effect waves-light #00bfa5 teal accent-4" id="submit" style="margin-bottom: 10%;"type="submit" name="action"  data-trailid="{{id}}">Add Journal
-              <i class="material-icons right">book</i>
-            </button>
+            <div class="col l7 right">
+
+            <h4 style="font-weight: 800;">{{name}}</h4>
+            <h5 style="font-weight: 800;">{{location}}</h5>
+            <p style="font-weight: 800;">Distance: {{length}} miles</p>
+            <p style="font-weight: 800;">Rating: {{stars}}/5</p>
+            <p style="font-weight: 800;">{{summary}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 l4">
+            <a href=""><button data-trailid="{{id}}" class="btn waves-effect waves-light #00bfa5 teal accent-4"   style="margin-bottom: 3%;"  name="action">Add Journal<i class="material-icons right">book</i></button></a>
+            </div>
+        </div>
+
+
     </li>
     {{/each}}
 </ul>
-
-
-
-
-
 
 </div>
 

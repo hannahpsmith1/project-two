@@ -11,9 +11,11 @@
         <p style="font-weight: 800;">Distance: {{length}} miles</p>
         <p style="font-weight: 800;">Rating: {{stars}}/5</p>
         <p style="font-weight: 800;">{{summary}}</p>
-
+        <iframe src={{mapUrl}}></iframe>
         <button data-trailid="{{id}}">Add journal</button>
     </li>
+
+    {{!-- {{map}} --}}
     {{/each}}
 </ul>
 </div>

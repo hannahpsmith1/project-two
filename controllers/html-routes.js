@@ -41,6 +41,7 @@ router.get("/trails", (req, res) => {
   .then(response => {
     const coords = response.data.features[0].center;
     placeName = response.data.features[0].place_name;
+    // console.log(maps)
     console.log(`${placeName}: ${coords}`);
     // make API call to The Hiking Project to get trails near coordinates
     return axios.get(`https://www.hikingproject.com/data/get-trails?lon=${coords[0]}&lat=${coords[1]}&key=${TRAILS_API_KEY}`);
@@ -48,7 +49,14 @@ router.get("/trails", (req, res) => {
   .then(response => {
     console.log(`${response.data.trails.length} trails found!`);
     // this will be changed to res.render()
-    res.render("search", {placeName: placeName, trails: response.data.trails});
+    trailList = response.data.trails.map(trail =>{
+      // trail.latitude
+      trail.mapUrl = `https://api.mapbox.com/styles/v1/mapbox/streets-v11.html?title=false&zoomwheel=false&access_token=pk.eyJ1IjoiaGFubmFocHNtaXRoMSIsImEiOiJja2Q5NXdocDkzODd6MzZxcjgwcGo0N292In0.hXZmM8t-GwS-zvBVyiTxJQ#13/${trail.latitude}/${trail.longitude}`
+      return trail
+    })
+    // map = "https://api.mapbox.com/styles/v1/mapbox/streets-v11.html?title=false&zoomwheel=false&access_token=pk.eyJ1IjoiaGFubmFocHNtaXRoMSIsImEiOiJja2Q5NXdocDkzODd6MzZxcjgwcGo0N292In0.hXZmM8t-GwS-zvBVyiTxJQ#13/34.751/-104.436";
+    // console.log(response.data)
+    res.render("search", {placeName: placeName, trails: trailList});
   })
   .catch(err => {
     console.log(err);

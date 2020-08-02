@@ -35,6 +35,7 @@
             <h5 style="font-weight: 800;">{{location}}</h5>
             <p style="font-weight: 800;">Distance: {{length}} miles</p>
             <p style="font-weight: 800;">Rating: {{stars}}/5</p>
+            <iframe src={{mapUrl}}></iframe> <br>
             <p style="font-weight: 800;">{{summary}}</p>
             </div>
         </div>
@@ -46,6 +47,8 @@
 
 
     </li>
+
+    {{!-- {{map}} --}}
     {{/each}}
 </ul>
 

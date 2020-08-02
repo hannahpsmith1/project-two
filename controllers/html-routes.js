@@ -50,7 +50,7 @@ router.get("/trails", (req, res) => {
     console.log(`${response.data.trails.length} trails found!`);
     // this will be changed to res.render()
     trailList = response.data.trails.map(trail =>{
-      trail.latitude
+      // trail.latitude
       trail.mapUrl = `https://api.mapbox.com/styles/v1/mapbox/streets-v11.html?title=false&zoomwheel=false&access_token=pk.eyJ1IjoiaGFubmFocHNtaXRoMSIsImEiOiJja2Q5NXdocDkzODd6MzZxcjgwcGo0N292In0.hXZmM8t-GwS-zvBVyiTxJQ#13/${trail.latitude}/${trail.longitude}`
       return trail
     })

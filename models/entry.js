@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
       hikeID: {
         type: DataTypes.INTEGER,
         // do we want to allow them not to have a name? if not I have the validation there
-        allowNull: falsetrue,
+        allowNull: false,
         // validate: {
         //   len: [1]
         // }
@@ -25,7 +25,7 @@ module.exports = function(sequelize, DataTypes) {
       },
       individualRating: {
         type: DataTypes.INTEGER,
-        defaultValue: ""
+        // defaultValue: ""
       },
       // public: {
       //   type: DataTypes. Boolean, 

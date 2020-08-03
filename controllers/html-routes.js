@@ -29,13 +29,16 @@ router.get("/signIn", (req,res) => {
   res.render("signIn", {});
 });
 
+router.get("/journal", (req, res) => {
+  res.render("journal", {})
+})
+
 // view trails search results
 router.get("/trails", (req, res) => {
   // route: "/trails?q=LOCATION_SEARCH_TERM"
 
   // keep track of place name so we can verify that the correct location was found
   let placeName;
-
   // make API call to MapBox to get coordinates
   axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${req.query.q}.json?access_token=${MAPBOX_API_KEY}`)
   .then(response => {

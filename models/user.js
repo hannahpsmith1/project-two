@@ -60,6 +60,7 @@ module.exports = function(sequelize, DataTypes) {
       //   type: DataTypes.INTEGER
       // }
     });
+    // comment comment 
       // Hooks are automatic methods that run during various phases of the User Model lifecycle
   // In this case, before a User is created, we will automatically hash their password
   User.prototype.verifyPassword = function(password) {

@@ -7,7 +7,10 @@ const session = require("express-session");
 
 // create the app
 const app = express();
+
+// get use environmental variables if they exist
 const PORT = process.env.PORT || 8080;
+const SESSION_SECRET = process.env.SESSION_SECRET || "sample secret";
 
 // import models
 const db = require("./models");
@@ -23,13 +26,26 @@ app.use(express.json());
 app.use(express.static("./public"));
 
 // use passport with persistent login sessions
-app.use(session({ secret: "keyboard cat", resave: false, saveUninitialized: false }));
+app.use(session({ secret: SESSION_SECRET, resave: false, saveUninitialized: false }));
 app.use(passport.initialize());
 app.use(passport.session());
 
 // use handlebars templates
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
+
+// a route for checking that that the good secret is being used
+app.get("/test-secret", (req, res) => {
+  if (SESSION_SECRET !== process.env.SESSION_SECRET) {
+    // the secret shoud be retrieved from environmental variables to really be a secret
+    res.send("The secret is not secure — using development version");
+  } else if (SESSION_SECRET.length < 30) {
+    // secret should be longer than 30 characters to make it difficult to guess
+    res.send("The secret is not secure — too short");
+  } else {
+    res.send("The secret is secure.");
+  }
+});
 
 // import routes
 const usersApiRoutes = require("./controllers/users-api-routes.js");

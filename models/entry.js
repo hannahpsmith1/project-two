@@ -36,3 +36,18 @@ module.exports = function(sequelize, DataTypes) {
 
 
   };
+
+  // Entry.findAll({
+  //   where:{id:hikeId},
+  //   include:[
+  //       { model:Entry, as:'hikeID',
+  //         where:{
+  //               is_valid:1,
+  //               is_vertify:1},
+  //         required:false
+  //         }
+  //       ]
+  //    })
+  //    .success(function(result) {
+  //      callback(result);
+  //  });

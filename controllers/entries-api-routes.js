@@ -10,12 +10,14 @@ const db = require("../models");
 const router = express.Router();
 
 // add an entry
-router.post("/api/entries", (req, res) => {
+router.post("/journal/:hikeTitle/:hikeID", (req, res) => {
   // API call to get trail data for the specific trail
   // Save that trail data to hikes table
   // Save the entry to the entry table
+  console.log(req.body);
   db.entry.create({
     title: req.body.title,
+    hikeID: req.params.hikeID,
     description: req.body.description,
     dateHiked: req.body.dateHiked
   })
@@ -23,6 +25,7 @@ router.post("/api/entries", (req, res) => {
     res.status(200).end();
   })
   .catch(err => {
+    console.log(err)
     res.status(500).end();
   });
 });

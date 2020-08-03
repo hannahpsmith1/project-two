@@ -29,6 +29,14 @@ router.get("/signIn", (req,res) => {
   res.render("signIn", {});
 });
 
+router.get("/about", (req,res) => {
+  res.render("about", {});
+});
+
+router.get("/team", (req,res) => {
+  res.render("team", {});
+});
+
 router.get("/journal/:title/:id", (req, res) => {
   res.render("journal", {
     hikeTitle :req.params.title 

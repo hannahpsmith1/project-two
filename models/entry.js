@@ -1,6 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
     var Entry = sequelize.define("entry", {
-        title: {
+        // add user 
+      title: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {

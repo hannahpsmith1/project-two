@@ -11,25 +11,26 @@ module.exports = function(sequelize, DataTypes) {
         //   },
         email: {
         type: DataTypes.STRING,
+        unique: true,
         allowNull: false,
         validate: {
-          len: [1]
+          isEmail: true
         }
       },
       name: {
         type: DataTypes.TEXT,
         // do we want to allow them not to have a name? if not I have the validation there
         allowNull: true,
-        // validate: {
-        //   len: [1]
-        // }
+        validate: {
+          len: [8]
+        }
       },
       password: {
         type: DataTypes.STRING,
         // do we want to allow them not to have a name? if not I have the validation there
         allowNull: false,
         validate: {
-          len: [6]
+          len: [8]
         }
       },
       entry: {

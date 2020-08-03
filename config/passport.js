@@ -19,15 +19,18 @@ passport.use(new LocalStrategy(
     }).then(userMatch => {
       // if not found, return no user data
       if (!userMatch) { 
+        console.log("incorrect email");
         return done(null, false, { message: 'Incorrect email.' }); 
       }
       // if found, check password -- currently, password is not encrypted
       // CHANGE LATER TO USER MODEL ENCRYPT PASSWORD
-      if (userMatch.password !== password) { 
+      if (!userMatch.verifyPassword(password)) { 
         // if incorrect, return no user data
+        console.log("incorrect password");
         return done(null, false, { message: 'Incorrect password.' }); 
       }
       // if correct, return data for the user
+      console.log("correct email and password");
       return done (null, userMatch);
     }).catch(err => {
       return done(err);
@@ -42,7 +45,7 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
-  User.findById(id, function(err, user) {
+  db.user.findById(id, function(err, user) {
     done(err, user);
   });
 });

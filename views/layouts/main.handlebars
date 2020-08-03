@@ -9,6 +9,95 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="script.js"></script>
+   <style>
+     .rating-list {
+	clear: both;
+	float: left;
+	margin: 3rem;
+}
+.rating-list ~ .form-list {
+	clear: both;
+}
+.rating-field {
+	margin-bottom: .5em;
+}
+.star-rating {
+  display: block;
+  height: 23px;
+  float: right;
+  color: transparent;
+ 
+	position: relative;
+  width: 25px;
+  &:before {
+  	z-index: 10;
+  	position: absolute;
+  	width: 0;
+  	height: 23px;
+  	content: "";
+  	top: 0; left: 0;
+  }
+  &:hover {
+  	&:before {
+  		width: 100%;
+  	}
+  }
+}
+input[type="radio"].rating-radio {
+	position: absolute;
+  margin: 1em 0 0 .9em;
+  font-size: .5em;
+  z-index: -1;
+  visibility: hidden;
+}
+
+// 1 star rating
+
+.rating-radio--1:checked {
+  & ~ .star-rating:before {
+		width: 100%;
+	}
+}
+
+// 2 star rating
+
+.rating-radio--2:checked {
+  & ~ .star-rating:before {
+		width: 100%;
+	}
+}
+
+// 3 star rating
+
+.rating-radio--3:checked {
+  & ~ .star-rating:before {
+		width: 100%;
+	}
+}
+
+// 4 star rating
+
+.rating-radio--4:checked {
+  & ~ .star-rating:before {
+		width: 100%;
+	}
+}
+
+// 5 star rating
+
+.rating-radio--5:checked {
+  & ~ .star-rating:before {
+    width: 100%;
+  }
+}
+
+.rating-list .star-rating:hover,
+.rating-list .star-rating:hover ~ .star-rating {
+  &:before {
+		width: 100%;
+	}
+}
+   </style>
       <!-- this part is important! -->
 
     <script>
@@ -17,6 +106,8 @@
       });
     </script>
     <link rel="icon" href="./public/img/finalsignin.png" type="image/x-icon"/>
+
+
             
     <body style="background-image: url(https://www.designyourway.net/blog/wp-content/uploads/2019/02/aesthetic-wallpaper-1.jpg); background-repeat: no-repeat; background-attachment: fixed; background-position: center; background-size: cover;" >
       {{{body}}}

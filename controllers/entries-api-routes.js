@@ -22,7 +22,7 @@ router.post("/journal/:hikeTitle/:hikeID", (req, res) => {
     dateHiked: req.body.dateHiked
   })
   .then(() => {
-    res.status(200).end();
+    res.status(200).redirect("/entries");
   })
   .catch(err => {
     console.log(err)

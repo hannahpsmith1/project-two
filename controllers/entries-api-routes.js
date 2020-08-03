@@ -12,7 +12,13 @@ const router = express.Router();
 // add an entry
 router.post("/journal/:hikeTitle/:hikeID", (req, res) => {
   // API call to get trail data for the specific trail
-  // Save that trail data to hikes table
+  // Save that trail data to hikes table\
+  // working on getting findor Create working
+  // db.hikes.findOrCreate({
+  //   id:req.params.hikeID,
+  //   hikeName:req.params.hikeTitle,
+
+  // })
   // Save the entry to the entry table
   console.log(req.body);
   db.entry.create({

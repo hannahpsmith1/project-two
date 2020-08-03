@@ -1,12 +1,12 @@
 module.exports = function(sequelize, DataTypes) {
     var Hikes = sequelize.define("hikes", {
-        hikeID: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [1]
-        }
-      },
+      //   hikeID: {
+      //   type: DataTypes.STRING,
+      //   allowNull: false,
+      //   validate: {
+      //     len: [1]
+      //   }
+      // },
       hikeImage: {
         type: DataTypes.STRING,
         // defaultValue: "Pacific Crest Trail"
@@ -37,3 +37,11 @@ module.exports = function(sequelize, DataTypes) {
 
 
   };
+
+
+
+  // <input type="radio" name="rating" onclick="myFunction(this.value)" value="1">1<br>
+  // <input type="radio" name="rating" onclick="myFunction(this.value)" value="2">2<br>
+  // <input type="radio" name="rating" onclick="myFunction(this.value)" value="3">3<br>
+  //   <input type="radio" name="rating" onclick="myFunction(this.value)" value="4">4<br>
+  // <input type="radio" name="rating" onclick="myFunction(this.value)" value="5">5<br>

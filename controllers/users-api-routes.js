@@ -26,10 +26,13 @@ router.post("/signUp", function(req, res) {
 });
 
 // log in a user
-router.post("/signIn", passport.authenticate("local", { 
-  successRedirect: "/", 
-  failureRedirect: "/signIn"
-}));
+router.post("/signIn", passport.authenticate("local"), (req, res) => {
+  if (req.user) {
+    res.status(200).end();
+  } else {
+    res.status(401).end();
+  }
+});
 
 // log out a user
 router.get("/logout", (req, res) => {

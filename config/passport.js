@@ -22,8 +22,7 @@ passport.use(new LocalStrategy(
         console.log("incorrect email");
         return done(null, false, { message: 'Incorrect email.' }); 
       }
-      // if found, check password -- currently, password is not encrypted
-      // CHANGE LATER TO USER MODEL ENCRYPT PASSWORD
+      // if found, check password
       if (!userMatch.verifyPassword(password)) { 
         // if incorrect, return no user data
         console.log("incorrect password");
@@ -44,10 +43,13 @@ passport.serializeUser(function(user, done) {
   // Currently just storing id's in the cookie. Is it bad because our id's are predictable?
 });
 
-passport.deserializeUser(function(id, done) {
-  db.user.findById(id, function(err, user) {
-    done(err, user);
-  });
+passport.deserializeUser(function(obj, done) {
+  // db.user.findOne({
+  //   where: { id: id }
+  // }).then((err, user) => {
+  //   done(err, user);
+  // });
+  done(null, obj);
 });
 
 // export the configuration

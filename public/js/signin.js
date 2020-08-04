@@ -14,7 +14,9 @@ $(document).ready(() => {
     }
 
     // make request to create user
-    $.post("/signIn", user);
+    $.post("/signIn", user).then(response => {
+      window.location.replace("/");
+    });
 
     // clear inputs
     $("#email").val("");

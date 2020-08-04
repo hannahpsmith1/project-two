@@ -95,9 +95,14 @@ router.get("/trails", (req, res) => {
 // view a user's entries
 router.get("/entries", (req, res) => {
   if (req.user) {
-    db.entry.findAll({}).then(data => {
-      console.log(data);
-      res.render("entries", {entries: data});
+    console.log(req.user.id);
+    db.entry.findAll({ 
+      where: { 
+        userID: req.user.id 
+      }
+    }).then(data => {
+    console.log(data);
+    res.render("entries", {entries: data});
     });
   } else {
     res.redirect("/signIn");

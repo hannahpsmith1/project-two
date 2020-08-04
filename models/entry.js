@@ -41,7 +41,9 @@ module.exports = function(sequelize, DataTypes) {
       db.hikes.hasMany(this, {
         foreignKey: "hikeID"
       });
-      this.belongsTo(db.hikes);
+      this.belongsTo(db.hikes, {
+        foreignKey: "hikeID"
+      });
     }
 
     return Entry;

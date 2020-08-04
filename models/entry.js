@@ -16,6 +16,10 @@ module.exports = function(sequelize, DataTypes) {
         //   len: [1]
         // }
       },
+      userID: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      },
       dateHiked: {
         type: DataTypes.STRING,
         defaultValue: "MM/DD/YYYY"

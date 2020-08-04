@@ -24,6 +24,7 @@ router.post("/journal/:hikeTitle/:hikeID", (req, res) => {
   db.entry.create({
     title: req.body.title,
     hikeID: req.params.hikeID,
+    userID: req.user.id,
     description: req.body.description,
     dateHiked: req.body.dateHiked
   })

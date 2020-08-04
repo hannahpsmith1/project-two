@@ -22,11 +22,11 @@ module.exports = function(sequelize, DataTypes) {
       },
       dateHiked: {
         type: DataTypes.STRING,
-        defaultValue: "MM/DD/YYYY"
+        // defaultValue: "MM/DD/YYYY"
       },
       description: {
         type: DataTypes.TEXT,
-        defaultValue: "Pacific Crest Trail"
+        // defaultValue: "Pacific Crest Trail"
       },
       individualRating: {
         type: DataTypes.INTEGER,
@@ -36,6 +36,14 @@ module.exports = function(sequelize, DataTypes) {
       //   type: DataTypes. Boolean, 
       // }
     });
+
+    Entry.associate = function(db) {
+      db.hikes.hasMany(this, {
+        foreignKey: "hikeID"
+      });
+      this.belongsTo(db.hikes);
+    }
+
     return Entry;
 
 

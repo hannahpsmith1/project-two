@@ -18,11 +18,11 @@ module.exports = function(sequelize, DataTypes) {
       },
       hikeLocation: {
         type: DataTypes.TEXT,
-        defaultValue: "Pacific Crest Trail"
+        // defaultValue: "Pacific Crest Trail"
       },
       hikeDistance: {
         type: DataTypes.INTEGER,
-        defaultValue: "55555"
+        // defaultValue: "55555"
       },
 
       aggregateRating: {
@@ -30,7 +30,7 @@ module.exports = function(sequelize, DataTypes) {
       },
       hikeSummary: {
         type: DataTypes.TEXT,
-        defaultValue: "Beautiful HIke"
+        // defaultValue: "Beautiful HIke"
       }
     });
     return Hikes;

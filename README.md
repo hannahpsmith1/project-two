@@ -56,7 +56,7 @@ Below are instructions to install the said NPM packages.
 - In the HIKR directory 
 - In terminal run the following:
 npm init -y
-THEN: 
+THEN
 npm install package_names
 
 ```

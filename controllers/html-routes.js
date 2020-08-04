@@ -95,14 +95,22 @@ router.get("/trails", (req, res) => {
 // view a user's entries
 router.get("/entries", (req, res) => {
   if (req.user) {
-    console.log(req.user.id);
-    db.entry.findAll({ 
-      where: { 
+    // console.log(req.user.id);
+
+    db.entry.findAll({
+      where: {
         userID: req.user.id 
+      }, 
+      include: {
+        model: db.hikes
       }
     }).then(data => {
-    console.log(data);
-    res.render("entries", {entries: data});
+    // console.log(data);
+    res.render("entries", {entries: data.map(entry => {
+      entry.hikeName = entry.hike.hikeName;
+      console.log(entry);
+      return entry;
+    })});
     });
   } else {
     res.redirect("/signIn");
@@ -126,9 +134,9 @@ router.get("/entries", (req, res) => {
 
 // redirect to home page if not found
 
-router.get("*", (req, res) => {
-  res.redirect("/");
-});
+// router.get("*", (req, res) => {
+//   res.redirect("/");
+// });
 
 // export router
 module.exports = router;

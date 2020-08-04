@@ -85,11 +85,11 @@ router.get("/trails", (req, res) => {
 });
 ```
 
-We were able to call 2 different API's.  Sierra was the mastermind of our original AJAX Calls. First, we called  Mapbox, which converted the user's search input field of a city/state/county,  to latitude's and longitudes. Hannah adapted the api Lat, Long to be able to construct an embeded Map for all searched trails.
+We were able to call 2 different API's.  Sierra was the mastermind of our original AJAX Calls. First, we called  Mapbox, which converted the user's search input field of a city/state/county,  to latitude's and longitudes. Then we were able to inpu the search input data to the Hiking Journal API and render seraches.  The conversion of a search input into a lat long is called forward geocoding. Hannah adapted the API Lat, Long to be able to construct a map function for any searched place with  an embeded Map for all searched trails.
 
 
 
 
 
-## Final statements (From Daniel Jauregui)
+## Final statements
 We are happy you have chosen to user HIKR. We have put countless hours to reach the state in which we have always wanted HIKR to be since day one. We will do our very best to continously update HIKR and add features as time goes on. I'd like to thank Hannah Smith and Sierra Chapman for being amazing teammates throughout the development. I could not have asked for better teammates throughout this process. I hope my teammates will grow beyond this project and always think of the HIKR days. Thank you again for choosing HIKR!

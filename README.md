@@ -2,7 +2,7 @@
 People will go through many journals through their lifetimes. Journals will constantly be lost, stolen, or damaged admist life itself.The amount of information being lost within those endeavors, and not to mention the amount of physical resources that go into developing a journal, are costly. **That's why HIKR was created.** To protect the journals of hikers across nation's and aid in the conservationalism of wildlife. HIKR's still in development and will continuously be till our team fulfills the goals we had since day one. 
 
 ## Deployed Site
-![Live Site](https://hikr-journal.herokuapp.com/)
+[Live Site](https://hikr-journal.herokuapp.com/)
 
 ## Site gif
 ![Site Functionality](public/img/bruhhh.gif)
@@ -49,7 +49,7 @@ npm install
 ```
 
 ## AJAX Call to MapBox and Hiking Project to produce Hiking Details and embedded map
-```
+```javascript
 
 router.get("/trails", (req, res) => {
   // route: "/trails?q=LOCATION_SEARCH_TERM"

@@ -126,9 +126,9 @@ router.get("/entries", (req, res) => {
 
 // redirect to home page if not found
 
-router.get("*", (req, res) => {
-  res.redirect("/");
-});
+// router.get("*", (req, res) => {
+//   res.redirect("/");
+// });
 
 // export router
 module.exports = router;

@@ -7,6 +7,10 @@ People will go through many journals through their lifetimes. Journals will cons
 ## Site gif
 ![Site Functionality](public/img/bruhhh.gif)
 
+
+## Guest URL
+If you would like to protoype this app, please use the login: guest@email.com and password: password
+
 ## Summary
 HIKR is a personalized journal that allows the user to search for hike trails and generate a customized journal from a given location. Highly favors privacy and the aid for the conservationism. Hikr also allows the user to find the nearest trails based on a location search query. The search query will return any given trails that the user can add a personalized journal to. This is made with the sole purpose for users to recall a trails details, experiences, and moments the user would like to add to journals.
 

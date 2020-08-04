@@ -37,10 +37,15 @@ router.get("/team", (req,res) => {
   res.render("team", {});
 });
 
+// for adding a journal
 router.get("/journal/:title/:id", (req, res) => {
-  res.render("journal", {
-    hikeTitle :req.params.title 
-  })
+  if (req.user) {
+    res.render("journal", {
+      hikeTitle: req.params.title 
+    });
+  } else {
+    res.redirect("/signIn");
+  }
 });
 
 // view trails search results
@@ -89,16 +94,20 @@ router.get("/trails", (req, res) => {
 
 // view a user's entries
 router.get("/entries", (req, res) => {
-  db.entry.findAll({}).then(data => {
-    console.log(data);
-    res.render("entries", {entries: data});
-  });
+  if (req.user) {
+    db.entry.findAll({}).then(data => {
+      console.log(data);
+      res.render("entries", {entries: data});
+    });
+  } else {
+    res.redirect("/signIn");
+  }
 });
 
-// view page for adding an entry
-router.get("trails/:trailId/entries/new", (req, res) => {
-  res.render("addEntry", {trailId: trailId});
-});
+// // view page for adding an entry
+// router.get("trails/:trailId/entries/new", (req, res) => {
+//   res.render("addEntry", {trailId: trailId});
+// });
 
 // // view a specific entry
 // router.get("/entries/:entry_id", (req, res) => {

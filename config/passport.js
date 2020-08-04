@@ -43,13 +43,12 @@ passport.serializeUser(function(user, done) {
   // Currently just storing id's in the cookie. Is it bad because our id's are predictable?
 });
 
-passport.deserializeUser(function(obj, done) {
-  // db.user.findOne({
-  //   where: { id: id }
-  // }).then((err, user) => {
-  //   done(err, user);
-  // });
-  done(null, obj);
+passport.deserializeUser(function(id, done) {
+  db.user.findOne({
+    where: { id: id }
+  }).then(user => {
+    done(null, user);
+  }).catch(err => done(err));
 });
 
 // export the configuration

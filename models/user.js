@@ -36,14 +36,14 @@ module.exports = function(sequelize, DataTypes) {
         //   len: [8]
         // }
       },
-      entry: {
-        type: DataTypes.STRING,
-        // do we want to allow them not to have a name? if not I have the validation there
-        allowNull: false,
-        validate: {
-          len: [6]
-        }
-      }
+      // entry: {
+      //   type: DataTypes.STRING,
+      //   // do we want to allow them not to have a name? if not I have the validation there
+      //   allowNull: false,
+      //   validate: {
+      //     len: [6]
+      //   }
+      // }
       // zipCode: {
       //   type: DataTypes.INTEGER,
       //   defaultValue: "55555"
@@ -62,7 +62,7 @@ module.exports = function(sequelize, DataTypes) {
     });
       // Hooks are automatic methods that run during various phases of the User Model lifecycle
   // In this case, before a User is created, we will automatically hash their password
-  User.prototype.veriyPassword = function(password) {
+  User.prototype.verifyPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
   };
     User.addHook("beforeCreate", function(user) {

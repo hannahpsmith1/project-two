@@ -8,14 +8,14 @@ module.exports = function(sequelize, DataTypes) {
           len: [1]
         }
       },
-      hikeID: {
-        type: DataTypes.INTEGER,
-        // do we want to allow them not to have a name? if not I have the validation there
-        allowNull: false,
-        // validate: {
-        //   len: [1]
-        // }
-      },
+      // hikeID: {
+      //   type: DataTypes.INTEGER,
+      //   // do we want to allow them not to have a name? if not I have the validation there
+      //   allowNull: false,
+      //   // validate: {
+      //   //   len: [1]
+      //   // }
+      // },
       userID: {
         type: DataTypes.INTEGER,
         allowNull: false

@@ -16,32 +16,33 @@ const router = express.Router();
 
 // view home page
 router.get("/", (req, res) => {
-  res.render("home", {});
+  res.render("home", {loggedIn: Boolean(req.user)});
 });
 
 // view page for adding a user
 router.get("/signUp", (req, res) => {
-  res.render("signUp", {});
+  res.render("signUp", {loggedIn: Boolean(req.user)});
 });
 
 // view page for logging in
 router.get("/signIn", (req,res) => {
-  res.render("signIn", {});
+  res.render("signIn", {loggedIn: Boolean(req.user)});
 });
 
 router.get("/about", (req,res) => {
-  res.render("about", {});
+  res.render("about", {loggedIn: Boolean(req.user)});
 });
 
 router.get("/team", (req,res) => {
-  res.render("team", {});
+  res.render("team", {loggedIn: Boolean(req.user)});
 });
 
 // for adding a journal
 router.get("/journal/:title/:id", (req, res) => {
   if (req.user) {
     res.render("journal", {
-      hikeTitle: req.params.title 
+      hikeTitle: req.params.title,
+      loggedIn: Boolean(req.user)
     });
   } else {
     res.redirect("/signIn");
@@ -74,7 +75,7 @@ router.get("/trails", (req, res) => {
     })
     // map = "https://api.mapbox.com/styles/v1/mapbox/streets-v11.html?title=false&zoomwheel=false&access_token=pk.eyJ1IjoiaGFubmFocHNtaXRoMSIsImEiOiJja2Q5NXdocDkzODd6MzZxcjgwcGo0N292In0.hXZmM8t-GwS-zvBVyiTxJQ#13/34.751/-104.436";
     // console.log(response.data)
-    res.render("search", {placeName: placeName, trails: trailList});
+    res.render("search", {placeName: placeName, trails: trailList, loggedIn: Boolean(req.user)});
   })
   .catch(err => {
     console.log(err);
@@ -106,11 +107,14 @@ router.get("/entries", (req, res) => {
       }
     }).then(data => {
     // console.log(data);
-    res.render("entries", {entries: data.map(entry => {
-      entry.hikeName = entry.hike.hikeName;
-      console.log(entry);
-      return entry;
-    })});
+    res.render("entries", {
+      entries: data.map(entry => {
+        entry.hikeName = entry.hike.hikeName;
+        console.log(entry);
+        return entry;
+      }),
+      loggedIn: Boolean(req.user)
+      });
     });
   } else {
     res.redirect("/signIn");

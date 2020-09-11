@@ -1,142 +1,157 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>HIKR</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    <script src="js/script.js"></script>
-   <style>
-     .rating-list {
-	clear: both;
-	float: left;
-	margin: 3rem;
-}
-.rating-list ~ .form-list {
-	clear: both;
-}
-.rating-field {
-	margin-bottom: .5em;
-}
-.star-rating {
-  display: block;
-  height: 23px;
-  float: right;
-  color: transparent;
- 
-	position: relative;
-  width: 25px;
-  &:before {
-  	z-index: 10;
-  	position: absolute;
-  	width: 0;
-  	height: 23px;
-  	content: "";
-  	top: 0; left: 0;
-  }
-  &:hover {
-  	&:before {
-  		width: 100%;
-  	}
-  }
-}
-input[type="radio"].rating-radio {
-	position: absolute;
-  margin: 1em 0 0 .9em;
-  font-size: .5em;
-  z-index: -1;
-  visibility: hidden;
-}
 
-// 1 star rating
+<head>
+  <title>HIKR</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script src="js/script.js"></script>
+  <style>
+    .rating-list {
+      clear: both;
+      float: left;
+      margin: 3rem;
+    }
 
-.rating-radio--1:checked {
-  & ~ .star-rating:before {
-		width: 100%;
-	}
-}
+    .rating-list~.form-list {
+      clear: both;
+    }
 
-// 2 star rating
+    .rating-field {
+      margin-bottom: .5em;
+    }
 
-.rating-radio--2:checked {
-  & ~ .star-rating:before {
-		width: 100%;
-	}
-}
+    .star-rating {
+      display: block;
+      height: 23px;
+      float: right;
+      color: transparent;
 
-// 3 star rating
+      position: relative;
+      width: 25px;
 
-.rating-radio--3:checked {
-  & ~ .star-rating:before {
-		width: 100%;
-	}
-}
+      &:before {
+        z-index: 10;
+        position: absolute;
+        width: 0;
+        height: 23px;
+        content: "";
+        top: 0;
+        left: 0;
+      }
 
-// 4 star rating
+      &:hover {
+        &:before {
+          width: 100%;
+        }
+      }
+    }
 
-.rating-radio--4:checked {
-  & ~ .star-rating:before {
-		width: 100%;
-	}
-}
+    input[type="radio"].rating-radio {
+      position: absolute;
+      margin: 1em 0 0 .9em;
+      font-size: .5em;
+      z-index: -1;
+      visibility: hidden;
+    }
 
-// 5 star rating
+    /* 1 star rating */
 
-.rating-radio--5:checked {
-  & ~ .star-rating:before {
-    width: 100%;
-  }
-}
+    .rating-radio--1:checked {
+      &~.star-rating:before {
+        width: 100%;
+      }
+    }
 
-.rating-list .star-rating:hover,
-.rating-list .star-rating:hover ~ .star-rating {
-  &:before {
-		width: 100%;
-	}
-}
-   </style>
-      <!-- this part is important! -->
+    /* 2 star rating */
 
-    <script>
-      $(document).ready(function () {
-        $(".button-collapse").sideNav();
-      });
-    </script>
-    <link rel="icon" href="./img/finalsignin.png" type="image/x-icon"/>
+    .rating-radio--2:checked {
+      &~.star-rating:before {
+        width: 100%;
+      }
+    }
 
+    /* 3 star rating */
 
-            
-    <body style="background-image: url(https://www.designyourway.net/blog/wp-content/uploads/2019/02/aesthetic-wallpaper-1.jpg); background-repeat: no-repeat; background-attachment: fixed; background-position: center; background-size: cover;" >
-       <div class="navbar-fixed">
-      <nav>
-          <div class="nav-wrapper #43a047 green darken-1">
-             <a href="/" class="brand-logo "style="font-weight:900; padding-left: 10px;" >HIKR</a>
-             <a href="/" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-             <ul class="right hide-on-med-and-down">
-                <li><a href="/entries">Hiking Log</a></li>
-                <li><a href="/team">The Team</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/signIn">Sign in</a></li>
+    .rating-radio--3:checked {
+      &~.star-rating:before {
+        width: 100%;
+      }
+    }
+
+    /* 4 star rating */
+
+    .rating-radio--4:checked {
+      &~.star-rating:before {
+        width: 100%;
+      }
+    }
+
+    /* 5 star rating */
+
+    .rating-radio--5:checked {
+      &~.star-rating:before {
+        width: 100%;
+      }
+    }
+
+    .rating-list .star-rating:hover,
+    .rating-list .star-rating:hover~.star-rating {
+      &:before {
+        width: 100%;
+      }
+    }
+  </style>
+  <!-- this part is important! -->
+
+  <script>
+    $(document).ready(function () {
+      $(".button-collapse").sideNav();
+    });
+  </script>
+  <link rel="icon" href="./img/finalsignin.png" type="image/x-icon" />
 
 
-            </ul>
-         </div>
-      </nav>
-   </div>
-   <ul class="side-nav" id="mobile-demo">
-       <li><a href="/entries">Hiking Log</a></li>
-        <li><a href="/team">The Team</a></li>
-        <li><a href="/about">About</a></li>
-         <li><a href="/signIn">Sign in</a></li>
+
+<body
+  style="background-image: url(https://www.designyourway.net/blog/wp-content/uploads/2019/02/aesthetic-wallpaper-1.jpg); background-repeat: no-repeat; background-attachment: fixed; background-position: center; background-size: cover;">
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper #43a047 green darken-1">
+        <a href="/" class="brand-logo " style="font-weight:900; padding-left: 10px;">HIKR</a>
+        <a href="/" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/entries">Hiking Log</a></li>
+          <li><a href="/team">The Team</a></li>
+          <li><a href="/about">About</a></li>
+          {{#if loggedIn}}
+          <li><a href="/logout">Log out</a></li>
+          {{else}}
+          <li><a href="/signIn">Sign in</a></li>
+          {{/if}}
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <ul class="side-nav" id="mobile-demo">
+    <li><a href="/entries">Hiking Log</a></li>
+    <li><a href="/team">The Team</a></li>
+    <li><a href="/about">About</a></li>
+    {{#if loggedIn}}
+    <li><a href="/logout">Log out</a></li>
+    {{else}}
+    <li><a href="/signIn">Sign in</a></li>
+    {{/if}}
   </ul>
   <br>
-      {{{body}}}
-     
-    </body>
-    <footer class="page-footer #43a047 green darken-1" style="margin-top: 200px;">
+  {{{body}}}
+
+</body>
+<footer class="page-footer #43a047 green darken-1" style="margin-top: 200px;">
   <div class="container">
     <div class="row">
       <div class="col l6 s12">
@@ -156,9 +171,10 @@ input[type="radio"].rating-radio {
   </div>
   <div class="footer-copyright">
     <div class="container">
-    © 2020 HIKR
-    <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+      © 2020 HIKR
+      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
     </div>
   </div>
 </footer>
+
 </html>
